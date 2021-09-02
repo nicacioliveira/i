@@ -18,7 +18,8 @@ const Home: NextPage = () => {
         </h1>
 
         <p className={styles.description}>
-          <h2>I'm a software engineer</h2>
+          <h2>Software engineer</h2>
+          <h3>Bachelor in Computer Science for <a href="https://portal.ufcg.edu.br/" target="_blank" rel="noopener noreferrer">UFCG</a></h3>
           I am currently a software engineer at <a href="https://vtex.com/" target="_blank" rel="noopener noreferrer">Vtex</a>, more precisely Mentor of the <a href="https://lab.vtex.com/home/" target="_blank" rel="noopener noreferrer">VtexLab project</a>
         </p>
 
