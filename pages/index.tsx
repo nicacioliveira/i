@@ -24,7 +24,7 @@ const Home: NextPage = () => {
         </p>
 
 
-        <div>
+        <div title="nicacio oliveira social network" role="contentinfo">
           <SocialIcon
             url="https://www.linkedin.com/in/nicacioliveira/"
           />
