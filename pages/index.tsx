@@ -20,7 +20,7 @@ const Home: NextPage = () => {
         <p className={styles.description}>
           <h2>Software engineer</h2>
           <h3>Bachelor in Computer Science for <a href="https://portal.ufcg.edu.br/" target="_blank" rel="noopener noreferrer">UFCG</a></h3>
-          I am currently a software engineer at <a href="https://vtex.com/" target="_blank" rel="noopener noreferrer">VTEX</a>, more precisely Mentor of the <a href="https://lab.vtex.com/home/" target="_blank" rel="noopener noreferrer">VTEXLab project</a>
+          I am currently a software engineer at <a href="https://vtex.com/" target="_blank" rel="noopener noreferrer">VTEX</a>, more precisely, I am an SRE engineer focused in observability and partially mentor of the <a href="https://lab.vtex.com/home/" target="_blank" rel="noopener noreferrer">VTEXLab project</a>
         </p>
 
 
