@@ -51,7 +51,7 @@ export default function PostPage({ post }: PostPageProps) {
 
       <article itemScope itemType="https://schema.org/BlogPosting">
         <Link href="/" className="back-link">
-          ← Voltar
+          ← {SITE_CONFIG.messages.back}
         </Link>
 
         <h1 itemProp="headline">{post.title}</h1>

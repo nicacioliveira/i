@@ -23,6 +23,7 @@ export const SITE_CONFIG = {
         noPostsFound: 'No posts found.',
         notFound: 'Not found.',
         readMore: 'Read more',
+        back: 'Back',
         backToHome: 'Back to home',
     }
 } as const;
