@@ -1,10 +1,10 @@
-// src/pages/index.tsx
 import { GetStaticProps } from 'next';
 import Head from 'next/head';
 import Link from 'next/link';
 import { getPosts } from '../utils/files';
 import { Post } from '../types/post';
 import { SITE_CONFIG } from '../config/constants';
+import '../styles/globals.css'
 
 interface HomeProps {
   posts: Post[];
@@ -16,6 +16,7 @@ export default function Home({ posts }: HomeProps) {
       <Head>
         <title>{SITE_CONFIG.title}</title>
         <meta name="description" content={SITE_CONFIG.description} />
+        <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <header className="site-header">

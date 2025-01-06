@@ -10,7 +10,7 @@ interface FolderPageProps {
   currentFolder: string;
 }
 
-export default function FolderPage({ posts = [], currentFolder }: FolderPageProps) {  // Valor padrão para posts
+export default function FolderPage({ posts = [], currentFolder }: FolderPageProps) {
   return (
     <>
       <Head>
@@ -18,7 +18,7 @@ export default function FolderPage({ posts = [], currentFolder }: FolderPageProp
       </Head>
       <div className="posts-list">
         <h1>{currentFolder}</h1>
-        {(!posts || posts.length === 0) ? (  // Verificação de segurança adicional
+        {(!posts || posts.length === 0) ? (
           <p>{SITE_CONFIG.messages.noPostsFound}</p>
         ) : (
           posts.map((post) => (
@@ -49,7 +49,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
   const paths: { params: { folder: string[] } }[] = [];
 
   function addFolderPath(folder: { path: string, subfolders: any[] }) {
-    if (folder.path) {  // Verifica se o path existe
+    if (folder.path) {
       paths.push({
         params: { folder: folder.path.split('/') }
       });
@@ -86,7 +86,7 @@ export const getStaticProps: GetStaticProps<FolderPageProps> = async ({ params }
 
     return {
       props: {
-        posts: posts || [], // Garante que sempre retornamos um array
+        posts: posts || [],
         currentFolder: folderPath
       }
     };

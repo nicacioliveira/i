@@ -21,7 +21,7 @@ export async function getPage(slug: string): Promise<StandalonePage | null> {
     
     return {
       slug,
-      title: data.title || 'Sem título',
+      title: data.title || 'No title',
       content: contentHtml,
       description: data.description || null
     };

@@ -15,7 +15,7 @@ export default function App({ Component, pageProps }: CustomAppProps) {
       <Component {...pageProps} />
       <footer className="footer">
         © {new Date().getFullYear()} {SITE_CONFIG.author}.{' '}
-        Todos os direitos reservados.
+        {SITE_CONFIG.footer.rights}
       </footer>
     </div>
   );

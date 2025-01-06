@@ -11,8 +11,8 @@ export default function FolderNavigation({ folders }: FolderNavigationProps) {
 
   return (
     <nav className="folder-nav">
-      <Link 
-        href="/" 
+      <Link
+        href="/"
         className={!currentFolder ? 'active' : ''}
       >
         Todos

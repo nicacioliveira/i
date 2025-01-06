@@ -41,7 +41,6 @@ function getAllFiles(dir: string): string[] {
     if (stat.isDirectory()) {
       results = results.concat(getAllFiles(fullPath));
     } else if (item.endsWith('.md')) {
-      // Normaliza o caminho relativo
       const relativePath = normalizePath(path.relative(postsDirectory, fullPath));
       results.push(relativePath);
     }
@@ -56,7 +55,6 @@ export function getPostSlugs(): string[] {
 }
 
 export async function getPost(slug: string): Promise<Post> {
-  // Garante que o slug está normalizado
   const normalizedSlug = normalizePath(slug);
   const fullPath = path.join(postsDirectory, `${normalizedSlug}.md`);
 
@@ -65,7 +63,6 @@ export async function getPost(slug: string): Promise<Post> {
     const { data, content } = matter(fileContents);
     const contentHtml = await marked(content);
 
-    // Extrai o diretório do post relativo à pasta posts
     const postFolder = normalizePath(path.dirname(normalizedSlug));
     
     return {
@@ -77,14 +74,15 @@ export async function getPost(slug: string): Promise<Post> {
       path: postFolder === '.' ? '' : postFolder
     };
   } catch (error) {
-    console.error(`Erro ao ler o arquivo ${fullPath}:`, error);
+    console.error(`Error reading file ${fullPath}:`, error);
     throw error;
   }
 }
 
 export async function getPosts(): Promise<Post[]> {
   const slugs = getPostSlugs();
-  console.log('Found slugs:', slugs); // Debug
+  
+  console.log('Found slugs:', slugs);
 
   const posts = await Promise.all(
     slugs.map(async (slug) => {

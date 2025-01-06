@@ -15,7 +15,6 @@ function getAllFiles(dirPath: string, arrayOfFiles: string[] = []): string[] {
     if (fs.statSync(fullPath).isDirectory()) {
       arrayOfFiles = getAllFiles(fullPath, arrayOfFiles);
     } else if (path.extname(file) === '.md') {
-      // Remove o prefixo do diretório base para ter caminhos relativos
       const relativePath = path.relative(postsDirectory, fullPath);
       arrayOfFiles.push(relativePath);
     }
@@ -30,13 +29,11 @@ export function getPostSlugs(): string[] {
 }
 
 export async function getPost(slug: string): Promise<Post> {
-  // Reconstrói o caminho completo do arquivo usando o slug
   const fullPath = path.join(postsDirectory, `${slug}.md`);
   const fileContents = fs.readFileSync(fullPath, 'utf8');
   const { data, content } = matter(fileContents);
   const contentHtml = await marked(content);
 
-  // Extrai a estrutura de pastas do slug
   const category = path.dirname(slug) !== '.' ? path.dirname(slug) : 'uncategorized';
   
   return {
@@ -46,7 +43,7 @@ export async function getPost(slug: string): Promise<Post> {
     category: data.category || category,
     description: data.description,
     content: contentHtml,
-    path: category // Adiciona o caminho da pasta
+    path: category
   };
 }
 
@@ -56,13 +53,11 @@ export async function getPosts(): Promise<Post[]> {
   return posts.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 }
 
-// Função para obter posts por pasta
 export async function getPostsByFolder(folder: string): Promise<Post[]> {
   const posts = await getPosts();
   return posts.filter(post => post.path === folder);
 }
 
-// Função para listar todas as pastas
 export function getFolders(): string[] {
   const folders = new Set<string>();
   

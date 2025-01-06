@@ -1,5 +1,6 @@
 import { GetStaticPaths, GetStaticProps } from 'next';
 import Head from 'next/head';
+import { SITE_CONFIG } from '../config/constants';
 import { getAllPages, getPage, StandalonePage } from '../utils/pages';
 
 interface StaticPageProps {
@@ -8,7 +9,7 @@ interface StaticPageProps {
 
 export default function StaticPage({ page }: StaticPageProps) {
   if (!page) {
-    return <div>Página não encontrada</div>;
+    return <div>{SITE_CONFIG.messages.notFound}</div>;
   }
 
   return (
