@@ -4,7 +4,6 @@ import Link from 'next/link';
 import { getPosts } from '../utils/files';
 import { Post } from '../types/post';
 import { SITE_CONFIG } from '../config/constants';
-import '../styles/globals.css'
 
 interface HomeProps {
   posts: Post[];
